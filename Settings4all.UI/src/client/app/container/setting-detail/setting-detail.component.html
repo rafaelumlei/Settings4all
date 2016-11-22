@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">
+                {{getSettingDescription()}}
+            </h3>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-cogs"></i> <a href="Javascript:void(0)" routerLink="/index">Settings</a>
+                </li>
+                <li>
+                    <i class="fa"></i>
+                    <a href="Javascript:void(0)" routerLink="/settings/{{currentSetting?.application}}">
+                        {{currentSetting?.application}}
+                    </a>
+                </li>
+                <li>
+                    <i class="fa"></i>
+                    <a href="Javascript:void(0)" routerLink="/settings/{{currentSetting?.application}}/{{currentSetting?.environment}}">
+                        {{currentSetting?.environment}}
+                    </a>
+                </li>
+                <li class="active">
+                    <i class="fa"></i> {{getSettingDescription()}}
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="container-fluid">
+        <div class="row control-group">
+            <div class="col-lg-11 pull-left">
+                <h5 class="text-primary text-left">
+                    Application
+                </h5>
+                <p>
+                    <b>{{currentSetting?.application}}</b>
+                </p>
+            </div>
+            <div class="btn-group pull-right col-lg-1" dropdown [(isOpen)]="status.isopen">
+                <button id="single-button" type="button" class="btn btn-primary" dropdownToggle [disabled]="disabled">
+                    <i class="fa fa-cog fa-1"></i><span class="caret"></span>
+                </button>
+                <ul dropdownMenu role="menu" aria-labelledby="single-button">
+                    <li role="menuitem"><a class="dropdown-item" routerLink="/settings/app/{{currentSetting?.environment}}/{{currentSetting?.id}}/edit" href="#">Edit Setting</a></li>
+                    <li role="menuitem"><a class="dropdown-item" (click)="deleteSetting()" href="Javascript:void(0)">Delete Setting</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row control-group">
+            <div class="col-lg-12">
+                <h5 class="text-primary text-left">
+                    Environment
+                </h5>
+                <p>
+                    <b>{{currentSetting?.environment}}</b>
+                </p>
+            </div>
+        </div>
+        <div class="row control-group">
+            <div class="col-lg-12">
+                <h5 class="text-primary text-left">
+                    Fullpath
+                </h5>
+                <p>
+                    <b>{{currentSetting?.fullpath}}</b>
+                </p>
+            </div>
+        </div>
+        <div class="row control-group">
+            <div class="col-lg-12">
+                <h5 class="text-primary">
+                    Setting Documentation
+                </h5>
+                <div [innerHtml]="currentSetting?.documentation">
+                </div>
+            </div>
+        </div>
+        <div class="row control-group">
+            <div class="col-lg-12">
+                <h5 class="text-primary">
+                    Setting Value
+                </h5>
+                <pre #jsonValue class="prettyprint lang-js linenums">
+                </pre>
+            </div>
+        </div>
+        <div class="row control-group">
+            <div class="col-lg-12">
+                <h5 class="text-primary">
+                    Updated
+                </h5>
+                <p>
+                    <b>{{currentSetting?.updated}}</b>
+                </p>
+            </div>
+        </div>
+        <div class="row control-group">
+            <div class="col-lg-12">
+                <h5 class="text-primary">
+                    Created
+                </h5>
+                <p>
+                    <b>{{currentSetting?.created}}</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

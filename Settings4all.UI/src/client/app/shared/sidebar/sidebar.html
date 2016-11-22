@@ -1,0 +1,32 @@
+<!-- Not working - To check -->
+<button class="btn btn-default" id="toggle-sidebar" type="button" (click)="eventCalled()">
+    &#9776;
+</button>
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+    <ul class="list-group">
+        <a routerLink="/index" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-cogs" aria-hidden="true"></i> All Settings
+        </a>
+        <div *ngFor="let application of availableApps">
+            <div class="nested-menu">
+                <a routerLink="/settings/{{application}}"  [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="selectApp(application)">
+                    <span class="hideOverflow"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; {{application}}</span>
+                </a>
+                <li *ngIf="selectedApp === application" class="nested" [ngClass]="{'expand' : selectedApp === application }">
+                    <!-- this area must be async loaded -->
+                    <ul class="submenu">
+                        <li *ngFor="let environment of currentAppEnvironments">
+                            <span>
+                                <a routerLink="/settings/{{application}}/{{environment}}" [routerLinkActive]="['router-link-active']" >
+                                     <span class="hideOverflow">
+                                         <i class="fa fa-sliders" aria-hidden="true"></i> &nbsp; {{environment}}
+                                     </span>
+                                </a>
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </ul>
+</nav>

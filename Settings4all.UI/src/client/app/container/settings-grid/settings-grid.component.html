@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-xl-12">
+            <h2 *ngIf="currentApp != null && currentEnv != null" class="page-header">
+                {{currentApp}}'s settings in {{currentEnv}}
+            </h2>
+            <h2 *ngIf="currentApp != null && currentEnv == null" class="page-header">
+                {{currentApp}}'s settings
+            </h2>
+            <h2 *ngIf="currentApp == null && currentEnv == null" class="page-header">
+                All Settings
+            </h2>
+            <!-- TODO: The breadcrumb must be a module -->
+            <ol *ngIf="currentApp == null && currentEnv == null" class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-cogs"></i>  <a href="Javascript:void(0);" routerLink="/index">Settings</a>
+                </li>
+            </ol>
+            <ol *ngIf="currentApp != null && currentEnv == null" class="breadcrumb">
+                <li>
+                    <i class="fa fa-cogs"></i>  <a href="Javascript:void(0);" routerLink="/index">Settings</a>
+                </li>
+                <li class="active">
+                    <i class="fa"></i>  <a href="Javascript:void(0);" routerLink="/settings/{{currentApp}}">{{currentApp}}</a>
+                </li>                
+            </ol>      
+            <ol *ngIf="currentApp != null && currentEnv != null" class="breadcrumb">
+                <li>
+                    <i class="fa fa-cogs"></i>  <a href="Javascript:void(0);" routerLink="/index">Settings</a>
+                </li>
+                <li class="active">
+                    <i class="fa"></i>  <a href="Javascript:void(0);" routerLink="/settings/{{currentApp}}">{{currentApp}}</a>
+                </li>                 
+                <li class="active">
+                    <i class="fa"></i>  <a href="Javascript:void(0);" routerLink="/settings/{{currentApp}}/{{currentEnv}}">{{currentEnv}}</a>
+                </li>                
+            </ol>                     
+        </div>
+    </div>
+    <ng-table [config]="config"
+              (tableChanged)="onChangeTable(config)"
+              (cellClicked)="onCellClick($event)"
+              [rows]="rows" [columns]="availableColumns">
+    </ng-table>
+    <pagination *ngIf="config.paging"
+                class="pagination-sm"
+                [(ngModel)]="page"
+                [totalItems]="length"
+                [itemsPerPage]="itemsPerPage"
+                [maxSize]="maxSize"
+                [boundaryLinks]="true"
+                [rotate]="false"
+                (pageChanged)="onChangeTable(config, $event)"
+                (numPages)="numPages = $event">
+    </pagination>
+</div>

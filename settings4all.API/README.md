@@ -2,8 +2,8 @@
 
 This API exposes a set of endpoints that support application settings browsing and managing use cases, being currently in use in the following projects:
 
-* [settings4net](https://github.com/rafaelumlei/settings4net): library that synchronizes settings from code to the Settings4all.API;
-* [settings4all.UI](https://github.com/rafaelumlei/settings4all): backoffice that enable the browsing and managing of the applciation settings stored in the settings4all.API. 
+* [settings4net](https://github.com/rafaelumlei/settings4net): library that synchronizes settings from code to the **Settings4all.API**;
+* [settings4all.UI](https://github.com/rafaelumlei/settings4all): backoffice that enable the browsing and managing of the applciation settings stored in the **settings4all.API**. 
 
 Currently the following endpoints are implemented:
 * Under construction...

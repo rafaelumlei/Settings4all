@@ -5,6 +5,9 @@ This API exposes a set of endpoints that support application settings browsing a
 * [settings4net](https://github.com/rafaelumlei/settings4net): library that synchronizes settings from code to the Settings4all.API;
 * [settings4all.UI](https://github.com/rafaelumlei/settings4all): backoffice that enable the browsing and managing of the applciation settings stored in the settings4all.API. 
 
+Currently the following endpoints are implemented:
+* Under construction...
+
 Currently the settings repository layer supports two storage possibilities:
 * Mongo Repository;
 * Entity Framework Repository;
@@ -31,5 +34,3 @@ The settings repository in use must be selected and configured (**connectionStri
     </container>
   </unity>
 ```
-
-Under construction;

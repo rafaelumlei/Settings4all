@@ -12,7 +12,7 @@ Currently the settings repository layer supports two storage possibilities:
 * Mongo Repository;
 * Entity Framework Repository;
 
-The settings repository in use must be selected and configured (**connectionString**  must be provided) in the Unity config section of the Web.config. For example, in the following example **MongoSettingsRepository** is active and the **EFSettingsRepository** is commented:
+The settings repository in use must be set and configured (**connectionString**  must be provided) in the Unity config section of the Web.config. For example, in the following example **MongoSettingsRepository** is active and the **EFSettingsRepository** is commented:
 
 ```xml
 <unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
